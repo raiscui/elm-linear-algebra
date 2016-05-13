@@ -584,7 +584,92 @@ var _elm_community$elm_linear_algebra$Native_MJS = function() {
         r[6] = m[8]; r[7] = m[9]; r[8] = m[10];
         return r;
     };
+  /*
+   * Function: M4x4.toArray
+   *
+   * Return the top left 3x3 matrix from the given 4x4 matrix m.
+   *
+   * Parameters:
+   *
+   *   m - the matrix
+   *   r - optional 3x3 matrix to store the result in
+   *
+   * Returns:
+   *
+   *   If r is specified, returns r after performing the operation.
+   *   Otherwise, returns a new 3x3 matrix with the result.
+   */
+  M4x4.toArray = function M4x4_toArray(a) {
 
+    var table = new Array(a[0],
+      a[1],
+      a[2],
+      a[3],
+      a[4],
+      a[5],
+      a[6],
+      a[7],
+      a[8],
+      a[9],
+      a[10],
+      a[11],
+      a[12],
+      a[13],
+      a[14],
+      a[15]);
+    return {
+      ctor: '_Array',
+      height: 0,
+      table: table
+    };
+  };
+
+  M4x4.toString = function M4x4_toString(a){
+    var table = new Array(a[0],
+      a[1],
+      a[2],
+      a[3],
+      a[4],
+      a[5],
+      a[6],
+      a[7],
+      a[8],
+      a[9],
+      a[10],
+      a[11],
+      a[12],
+      a[13],
+      a[14],
+      a[15]);
+
+      return table.toString();
+  }
+
+  M4x4.to2d = function M4x4_to2d(a){
+    var table = new Array(a[0],
+      a[1],
+      a[4],
+      a[5],
+      a[12],
+      a[13]);
+
+      return {
+        ctor: '_Array',
+        height: 0,
+        table: table
+      };
+  }
+M4x4.to2dString = function M4x4_to2dString(a){
+  var table = new Array(a[0],
+    a[1],
+    a[4],
+    a[5],
+    a[12],
+    a[13]);
+
+
+    return table.toString();
+}
     /*
      * Function: M4x4.inverseOrthonormal
      *
@@ -1757,6 +1842,10 @@ var _elm_community$elm_linear_algebra$Native_MJS = function() {
         v3mul4x4: F2(V3.mul4x4),
         m4x4identity: M4x4.identity,
         m4x4topLeft3x3: M4x4.topLeft3x3,
+    m4x4toArray: M4x4.toArray,
+    m4x4toString: M4x4.toString,
+    m4x4to2d:M4x4.to2d,
+    m4x4to2dString:M4x4.to2dString,
         m4x4inverseOrthonormal: M4x4.inverseOrthonormal,
         m4x4inverseTo3x3: M4x4.inverseTo3x3,
         m4x4makeFrustum: F6(M4x4.makeFrustum),

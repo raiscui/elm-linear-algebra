@@ -11,6 +11,9 @@ existing matrix.
 
 @docs Mat4, identity
 
+# Get and Set
+The set functions create a new copy of the vector, updating a single field.
+@docs toArray,toString,to2d,to2dString
 # Operations
 
 @docs inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
@@ -29,6 +32,7 @@ existing matrix.
 
 -}
 
+import Array exposing (Array)
 import Native.MJS
 import Math.Vector3 exposing (Vec3)
 
@@ -45,6 +49,33 @@ transform = Native.MJS.v3mul4x4
 identity : Mat4
 identity = Native.MJS.m4x4identity
 
+
+{-| A matrix with all 0s, except 1s on the diagonal.
+-}
+toArray : Mat4 -> Array Float
+toArray =
+  Native.MJS.m4x4toArray
+
+
+{-| A matrix with all 0s, except 1s on the diagonal.
+-}
+toString : Mat4 -> String
+toString =
+  Native.MJS.m4x4toString
+
+
+{-| A matrix with all 0s, except 1s on the diagonal.
+-}
+to2d : Mat4 -> Array Float
+to2d =
+  Native.MJS.m4x4to2d
+
+
+{-| A matrix with all 0s, except 1s on the diagonal.
+-}
+to2dString : Mat4 -> String
+to2dString =
+  Native.MJS.m4x4to2dString
 {-| Computes the inverse of the given matrix m, assuming that the matrix is
 orthonormal.
 -}
